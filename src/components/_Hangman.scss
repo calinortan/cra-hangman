@@ -1,0 +1,22 @@
+.Hangman {
+  &-Timer {
+    height: 50px;
+    width: 50px;
+    font-size: 45px;
+    color: coral;
+    display: inline-block;
+  }
+  &-Word {
+    margin-left: auto;
+    margin-right: auto;
+    &-Letter {
+      margin: 0 1px;
+      background: darkcyan;
+      color: darkblue;
+      height: 50px;
+      width: 50px;
+      font-size: 45px;
+      display: inline-block;
+    }
+  }
+}
