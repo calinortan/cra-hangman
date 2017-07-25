@@ -19,4 +19,30 @@
       display: inline-block;
     }
   }
+  &-InputLetter {
+    display: inline-block;
+    margin-top: 10px;
+    input {
+      width: 50px;
+      height: 50px;
+      font-size: 45px;
+      color: darkcyan;
+      padding-left: 10px;
+      box-sizing: border-box;
+    }
+  }
+  &-Message {
+    &-Correct {
+      color: forestgreen;
+    }
+    &-Error {
+      color: crimson;
+    }
+  }
+  &-HealthPoints {
+    &-HpNumber {
+      color: darkcyan;
+      font-size: 30px;
+    }
+  }
 }

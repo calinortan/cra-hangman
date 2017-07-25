@@ -1,0 +1,15 @@
+.GameInit {
+  margin-top: 10px;
+  &-Input {
+    margin-top: 10px;
+    height: 30px;
+    width: 250px;
+    font-size: 30px;
+    text-align: center;
+  }
+  &-Submit {
+    height: 30px;
+    vertical-align: super;
+    margin: 2px;
+  }
+}
