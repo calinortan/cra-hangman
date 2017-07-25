@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import difference from 'lodash.difference';
+import isEmpty from 'lodash.isempty';
+
 
 class Hangman extends Component {
   constructor(props) {
@@ -96,7 +99,7 @@ class Hangman extends Component {
   }
 
   renderEndGame() {
-    return <div>
+    return <div className='Hangman-EndGame'>
       <span>
         You Got HANGED !!!!
       </span>
@@ -104,7 +107,21 @@ class Hangman extends Component {
         <button onClick={this.props.onReset}>RESTART Game</button>
       </div>
       <div>
-        <img src='/hangman.jpg'/>
+        <img src='/hangman.jpg' />
+      </div>
+    </div>
+  }
+
+  renderWonGame() {
+    return <div className='Hangman-WonGame'>
+      <span>
+        Congratulations YOU ESCAPED THE HANGMAN !!!!
+      </span>
+      <div>
+        <button onClick={this.props.onReset}>RESTART Game</button>
+      </div>
+      <div>
+        <img src='/congratulations.jpg' />
       </div>
     </div>
   }
@@ -128,10 +145,26 @@ class Hangman extends Component {
       </div>
     }
   }
+
+  renderInputLetter() {
+    return <div className='Hangman-InputLetter'>
+      <div>Guess a letter here and press enter to submit:</div>
+      <form onSubmit={this.onLetterSubmit}>
+        <input maxLength="1" value={this.state.inputLetter} onChange={this.handleInputChange} />
+      </form>
+    </div>
+  }
   render() {
-    if (this.state.hp < 0) {
+    const { hp, guessedLetters } = this.state;
+    const { word } = this.props;
+
+    if (hp < 0) {
       return this.renderEndGame();
     }
+    if (isEmpty(difference(word.split(''), guessedLetters))) {
+      return this.renderWonGame();
+    }
+
     return (
       <div className="Hangman">
         <div>You have 30 seconds to guess a letter</div>
@@ -139,12 +172,7 @@ class Hangman extends Component {
         <div className='Hangman-Word'>
           {this.renderWord()}
         </div>
-        <div className='Hangman-InputLetter'>
-          <div>Guess a letter here and press enter to submit:</div>
-          <form onSubmit={this.onLetterSubmit}>
-            <input maxLength="1" value={this.state.inputLetter} onChange={this.handleInputChange} />
-          </form>
-        </div>
+        {this.renderInputLetter()}
         {this.renderRemainingHp()}
         <div className='Hangman-Message'>
           {this.renderMessage()}

@@ -72,3 +72,5 @@
     height: 30px;
     vertical-align: super;
     margin: 2px; }
+  .GameInit-Error {
+    color: crimson; }
