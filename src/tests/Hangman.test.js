@@ -1,7 +1,6 @@
 import React from 'react';
 import Hangman from '../components/Hangman';
 import { shallow, mount } from 'enzyme';
-import sinon from 'sinon';
 
 describe('<Hangman />', () => {
   it('renders without crashing', () => {

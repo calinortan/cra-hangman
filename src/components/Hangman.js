@@ -107,7 +107,7 @@ class Hangman extends Component {
         <button onClick={this.props.onReset}>RESTART Game</button>
       </div>
       <div>
-        <img src='/hangman.jpg' />
+        <img src='/hangman.jpg' alt='You got Hanged'/>
       </div>
     </div>
   }
@@ -121,7 +121,7 @@ class Hangman extends Component {
         <button onClick={this.props.onReset}>RESTART Game</button>
       </div>
       <div>
-        <img src='/congratulations.jpg' />
+        <img src='/congratulations.jpg' alt='congratulations'/>
       </div>
     </div>
   }
